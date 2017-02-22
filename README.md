@@ -1,5 +1,7 @@
 # StampL10n
 
+[![Build Status](https://travis-ci.org/TandaHQ/stamp-l10n.svg?branch=master)](https://travis-ci.org/TandaHQ/stamp-l10n)
+
 Successor to [stamp-i18n](https://github.com/karpiu/stamp-i18n), designed to work with newer versions of [stamp](https://github.com/jeremyw/stamp).
 
 Uses Rails Internationalization to bring stamp to all locales.
