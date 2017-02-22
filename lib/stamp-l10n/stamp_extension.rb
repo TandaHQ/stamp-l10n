@@ -15,13 +15,13 @@ module StampL10n
     def memoize_stamp_emitters(example)
       @@memoized_stamp_emitters ||= {} # rubocop:disable Style/ClassVars
       @@memoized_stamp_emitters[example] ||= {}
-      @@memoized_stamp_emitters[example][nil] ||= stamp_emitters(example)
+      @@memoized_stamp_emitters[example][:en] ||= stamp_emitters(example)
     end
 
     def memoize_locale_stamp_emitters(example, locale = I18n.locale)
       @@memoized_stamp_emitters ||= {} # rubocop:disable Style/ClassVars
       @@memoized_stamp_emitters[example] ||= {}
-      @@memoized_stamp_emitters[example][locale] ||= locale_stamp_emitters(example, locale)
+      @@memoized_stamp_emitters[example][locale.to_sym] ||= locale_stamp_emitters(example, locale)
     end
   end
 end
