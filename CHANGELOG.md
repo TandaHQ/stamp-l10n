@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Memoize default `stamp` under the same key as :en `locale_stamp`
 - Cleanup monkey patching to not redefine `Stamp` if it's not defined
 
-## [0.1.0] - 2017-02-22
+## 0.1.0 - 2017-02-22
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/daveallie/bindrs/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/TandaHQ/stamp-l10n/compare/v0.1.0...HEAD
