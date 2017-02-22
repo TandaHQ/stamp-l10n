@@ -1,6 +1,8 @@
 # StampL10n
 
+Successor to [stamp-i18n](https://github.com/karpiu/stamp-i18n), designed to work with newer versions of [stamp](https://github.com/jeremyw/stamp).
 
+Uses Rails Internationalization to bring stamp to all locales.
 
 ## Installation
 
@@ -18,11 +20,35 @@ And then execute:
 
 ## Before using
 
-# Stamp changes a lot between versions, so make sure to pin its version
+This gem uses i18n translation mechnism, which means before using it, first we need to add proper translation files to locales folder and then setup i18n configuration. Example YML files used for testing is written in few various languages and are located in ./locale folder. Look for more examples here: https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
 
 ## Usage
 
+Same as [stamp](https://github.com/jeremyw/stamp), but gives the option of `locale_stamp`, or `l_stamp` (an alias) for when you need your stamped content to be localized.
 
+```ruby
+date = Date.new(2017, 02, 22)
+date.stamp('Tuesday 12th March')
+#=> "Wednesday 22nd February"
+```
+
+Using the new `locale_stamp` method:
+
+```ruby
+date = Date.new(2017, 02, 22)
+date.locale_stamp('Tuesday 12th March')  # default locale is :de
+#=> "Mittwoch 22nd Februar"
+date.l_stamp('Tuesday 12th March')       # default locale is :pl
+#=> "środa 22nd luty"
+```
+
+You can also optionally override the locale used:
+
+```ruby
+date = Date.new(2017, 02, 22)
+date.locale_stamp('Tuesday 12th March', :de)  # default locale is :en
+#=> "Mittwoch 22nd Februar"
+```
 
 ## Development
 
