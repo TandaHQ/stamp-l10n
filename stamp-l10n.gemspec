@@ -14,15 +14,13 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/tandahq/stamp-l10n'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features|locale)/})
-  end
+  spec.files         = Dir.glob('lib/**/*') + %w(CHANGELOG.md CODE_OF_CONDUCT.md LICENSE.txt README.md)
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.14'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rubocop', '~> 0.47.0'
-  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rspec', '~> 0'
   spec.add_dependency 'stamp', '= 0.6.0'
-  spec.add_dependency 'i18n'
+  spec.add_dependency 'i18n', '~> 0'
 end
