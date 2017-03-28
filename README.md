@@ -1,3 +1,29 @@
+## -- DEPRECATED --
+
+By setting up I18n formats, you can leverage the translations by defining you're own formats in locale files and adding the following initializer to your rails app:
+
+```ruby
+# config/initializers/date_time_to_ls_extension.rb
+
+module DateTimeToLsExtension
+  def to_ls(format = :default, **opts)
+
+    opts[:format] = if format.to_s.include?('ordinal')
+      I18n.t(format, scope: [self.respond_to?(:sec) ? 'time' : 'date', :formats], ordinal: self.day.ordinalize)
+    else
+      format.to_sym
+    end
+
+    I18n.localize(self, opts)
+  end
+end
+
+Date.prepend(DateTimeToLsExtension)
+Time.prepend(DateTimeToLsExtension)
+```
+
+This extends the `Date`, `Time` and `ActiveSupport` date/time objects with the `to_ls` helper, which just simplifies calling `I18n.localize`, and adds the ability to have day of month ordinals (i.e. '2nd March')
+
 # StampL10n
 
 [![Build Status](https://travis-ci.org/TandaHQ/stamp-l10n.svg?branch=master)](https://travis-ci.org/TandaHQ/stamp-l10n)
